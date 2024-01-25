@@ -45,5 +45,15 @@ namespace GoFish.Tests
       Game newGame = new Game();
       Assert.AreEqual(expected,newGame.CurrentPlayerTurn);
     }
+
+    [TestMethod]
+    public void SetCurrentPlayerTurn_ChangeCurrentPlayerTurn_Int()
+    {
+      Game newGame = new Game();
+      int updated = 2;
+      newGame.CurrentPlayerTurn = updated;
+
+      Assert.AreEqual(updated,newGame.CurrentPlayerTurn);
+    }
   }
 }
