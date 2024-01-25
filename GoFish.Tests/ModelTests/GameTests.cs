@@ -31,6 +31,11 @@ namespace GoFish.Tests
     }
 
     [TestMethod]
-    public void Get
+    public void GetActivePlayerBool_ReturnsActivePlayerBool_Bool()
+    {
+      bool playerActive = true;
+      Game newGame = new Game();
+      Assert.AreEqual(true,newGame.ActivePlayerBool);
+    }
   }
 }

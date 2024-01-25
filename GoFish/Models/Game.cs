@@ -5,13 +5,14 @@ namespace GoFish.Models
 {
   public class Game
   {
-    public bool activePlayer { get; }
+    public bool ActivePlayerBool { get; }
     // public List<Deck> Deck { get; set; }
     public List<string> Deck { get; set; }
 
     public Game()
     {
       Deck = new List<string> { };
+      ActivePlayerBool = true;
     }
 
     public void DeckBuilder()
