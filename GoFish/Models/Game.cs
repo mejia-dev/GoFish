@@ -5,15 +5,22 @@ namespace GoFish.Models
 {
   public class Game
   {
+    private static List<Game> _instances = new List<Game> { };
+    public int GameId { get; }
     public bool ActivePlayerBool { get; }
     public int CurrentPlayerTurn { get; set; }
     public List<string> Deck { get; set; }
+    public List<Player> Players { get; set; }
 
     public Game()
     {
+      _instances.Add(this);
+      GameId = _instances.Count;
       Deck = new List<string> { };
       ActivePlayerBool = true;
       CurrentPlayerTurn = 1;
+      Players = new List<Player> {};
+      
     }
 
     public void DeckBuilder()
@@ -27,6 +34,16 @@ namespace GoFish.Models
         Deck.Add("Diamonds" + i);
       }
       Console.WriteLine(Deck.Count);
+    }
+
+    public static List<Game> GetAll()
+    {
+      return _instances;
+    }
+
+    public static  void ClearAll()
+    {
+      _instanceslayers.Clear();
     }
 
 

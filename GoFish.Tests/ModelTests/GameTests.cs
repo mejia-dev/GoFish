@@ -6,8 +6,13 @@ using System;
 namespace GoFish.Tests
 {
   [TestClass]
-  public class GameTests
+  public class GameTests : IDisposable
   {
+    public void Dispose()
+    {
+      Game.ClearAll();
+    }
+    
     [TestMethod]
     public void GameConstructor_CreatesInstanceOfGame_Game()
     {
@@ -54,6 +59,17 @@ namespace GoFish.Tests
       newGame.CurrentPlayerTurn = updated;
 
       Assert.AreEqual(updated,newGame.CurrentPlayerTurn);
+    }
+
+    [TestMethod]
+    public void GetPlayers_ReturnsPlayer_List()
+    {
+      Game newGame = new Game();
+      Player player1 = new Player();
+      Player player2 = new Player();
+      List<Player> expected = new List<Player> { player1, player2 };
+      newGame.GetAll();
+      CollectionAssert.AreEqual(expected, newGame.Players);
     }
   }
 }
