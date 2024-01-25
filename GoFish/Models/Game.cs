@@ -1,13 +1,33 @@
 using System.Collections.Generic;
+using System;
 
 namespace GoFish.Models
 {
   public class Game
   {
+    public bool activePlayer { get; }
+    // public List<Deck> Deck { get; set; }
+    public List<string> Deck { get; set; }
+
     public Game()
     {
-      
+      Deck = new List<string> { };
     }
+
+    public void DeckBuilder()
+    {
+      Deck = new List<string>();
+      for (int i = 1; i <= 13; i++)
+      {
+        Deck.Add("Spades" + i);
+        Deck.Add("Hearts" + i);
+        Deck.Add("Clubs" + i);
+        Deck.Add("Diamonds" + i);
+      }
+      Console.WriteLine(Deck.Count);
+    }
+
+
   }
 }
 
