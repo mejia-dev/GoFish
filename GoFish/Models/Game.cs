@@ -6,13 +6,14 @@ namespace GoFish.Models
   public class Game
   {
     public bool ActivePlayerBool { get; }
-    // public List<Deck> Deck { get; set; }
+    public int CurrentPlayerTurn { get; }
     public List<string> Deck { get; set; }
 
     public Game()
     {
       Deck = new List<string> { };
       ActivePlayerBool = true;
+      CurrentPlayerTurn = 1;
     }
 
     public void DeckBuilder()
